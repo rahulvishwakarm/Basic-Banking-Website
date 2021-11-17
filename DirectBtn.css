@@ -1,0 +1,23 @@
+.btns {
+    padding: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.btns a {
+    color: white;
+    text-decoration: none;
+}
+
+.btns:hover {
+    background-color: #495057;
+}
+
+@media only screen and (max-width:650px) {
+    .btns {
+        margin-top: 2px;
+    }
+}
+

@@ -1,0 +1,36 @@
+.btn {
+    background-color: #343a40;
+    color: white;
+    font-size: small;
+    display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+h2{
+	font-size: 40px;
+}
+table{
+	letter-spacing: 1.2px;
+}
+td{
+	text-align: center;
+}
+button{
+	border:none;
+	background: #32a1ab;
+    transition: 1s;
+	color: #ffffff;
+}
+
+@media only screen and (orientation: portrait){
+	*{
+		letter-spacing: 1px;
+	}
+}

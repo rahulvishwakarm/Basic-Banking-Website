@@ -1,0 +1,28 @@
+body {
+    background-color: #e9ecef;
+}
+
+@media only screen and (min-width:600px) {
+.banner-img img{
+    border: 2px solid #343a40;
+    border-radius: 10px;
+}
+}
+
+@media only screen and (max-width:600px) {
+    .img-fluid {
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (min-width:600px) {
+    body {
+        background-color: #e9ecef;
+    }
+
+    .banner-content {
+        padding-top: 10%;
+    }
+}   
