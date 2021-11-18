@@ -14,10 +14,10 @@
 <body>
 
 <?php
-  include 'navigationBar.php';
+    include 'navigationBar.php';
 ?>
 
-	<div class="container-fluid">
+	<div class="container">
         <h2 class="text-center pt-4">Transactions</h2>
         
        <br>
@@ -25,40 +25,36 @@
     <table class="table table-hover table-striped table-condensed table-bordered">
         <thead>
             <tr>
-                <th class="text-center">S.No.</th>
-                <th class="text-center">Sender</th>
-                <th class="text-center">Receiver</th>
+                
+                <th class="text-center ">Debit Account</th>
+                <th class="text-center">Credit Account</th>
                 <th class="text-center">Amount</th>
                 <th class="text-center">Date & Time</th>
             </tr>
         </thead>
         <tbody>
         <?php
-
             include 'connection.php';
-
             $sql ="select * from transaction";
-
             $query =mysqli_query($connection, $sql);
-
             while($rows = mysqli_fetch_assoc($query))
             {
         ?>
-
             <tr>
-            <td class="py-2"><?php echo $rows['sno']; ?></td>
-            <td class="py-2"><?php echo $rows['sender']; ?></td>
-            <td class="py-2"><?php echo $rows['receiver']; ?></td>
-            <td class="py-2"><?php echo $rows['balance']; ?> </td>
-            <td class="py-2"><?php echo $rows['datetime']; ?> </td>
-                
+                <td class="py-2"><?php echo $rows['sender']; ?></td>
+                <td class="py-2"><?php echo $rows['receiver']; ?></td>
+                <td class="py-2"><?php echo $rows['balance']; ?> </td>
+                <td class="py-2"><?php echo $rows['datetime']; ?> </td>
+            </tr>
         <?php
             }
-
         ?>
         </tbody>
     </table>
 
+    </div>
+    <div class="center">
+        <button class="downlaod px-2 py-1" style="background-color: #343a40;" onclick="print()">Download Transactions</button>
     </div>
 </div>
 

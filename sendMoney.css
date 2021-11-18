@@ -22,6 +22,11 @@ table{
 td{
 	text-align: center;
 }
+
+tr:nth-child(even) {
+	background-color: #343a40;
+	color: white;}
+
 button{
 	border:none;
 	background: #32a1ab;
@@ -33,4 +38,9 @@ button{
 	*{
 		letter-spacing: 1px;
 	}
+}
+
+.downlaod {
+	background-color: #343a40;
+	color: white;
 }

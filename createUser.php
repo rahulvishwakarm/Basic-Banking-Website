@@ -36,7 +36,7 @@
 
     <div class="container create-user-header-form ">
         <div class="create-user-header">
-            <h4 class=" create-user-txt text-center">Create A User</h4> 
+            <h4 class=" create-user-txt text-center">Add a Account</h4> 
         </div>
         <div class="col create-form-img ">
             <div class="row row-md-12 create-user-img justify-content-between">
@@ -45,7 +45,7 @@
             <form method="post">
                 <div class="form-group">
                     <label for="exampleInputName">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName" name="name" placeholder="Enter Name" required>
+                    <input type="text" class="form-control" id="exampleInputName" name="name" placeholder="Enter Name" required >
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>

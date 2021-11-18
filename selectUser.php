@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./footer.css">
     <link rel="stylesheet" type="text/css" href="./index.css">
     <link rel="stylesheet" type="text/css" href="./navigationBar.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Select Benificiary For Transaction</title>
 </head>
 <body>
@@ -32,55 +32,46 @@
         $rows=mysqli_fetch_assoc($result);
         ?>
         <form method="post" name="tcredit" class="tabletext" ><br>
-            <div>
-                <table class="table table-striped table-condensed table-bordered">
-                    <tr>
-                        <th class="text-center">Id</th>
-                        <th class="text-center">Name</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Balance</th>
-                    </tr>
-                    <tr>
-                        <td class="py-2"><?php echo $rows['id'] ?></td>
-                        <td class="py-2"><?php echo $rows['name'] ?></td>
-                        <td class="py-2"><?php echo $rows['email'] ?></td>
-                        <td class="py-2"><?php echo $rows['balance'] ?></td>
-                    </tr>
-                </table>
+            
+            <div class="row container">
+                <div class="col">
+                    <label>From:</label>
+                    <h5><?php echo $rows['email'] ?> (Rs <?php echo $rows['balance'] ?>)</h5>
+                </div>
+                <div class="col">
+                    <label>Transfer To:</label>
+                    <select name="to" class="form-control" required>
+                        <option value="" disabled selected>Choose</option>
+                        <?php
+                        include 'connection.php';
+                        $sid=$_GET['id'];
+                        $sql = "SELECT * FROM users where id!=$sid";
+                        $result=mysqli_query($connection,$sql);
+                        if(!$result)
+                        {
+                            echo "Error ".$sql."<br>".mysqli_error($connection);
+                        }
+                        while($rows = mysqli_fetch_assoc($result)) {
+                            ?>
+                            <option class="table" value="<?php echo $rows['id'];?>" >
+
+                                <?php echo $rows['name'] ;?> (Email:
+                                <?php echo $rows['email'] ;?> )
+
+                            </option>
+                            <?php
+                        }
+                        ?>
+                        <div>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>Amount:</label>
+                    <input type="number" class="form-control" name="amount" required>
+                </div>
             </div>
-            <br><br><br>
-            <label>Transfer To:</label>
-            <select name="to" class="form-control" required>
-                <option value="" disabled selected>Choose</option>
-                <?php
-                include 'connection.php';
-                $sid=$_GET['id'];
-                $sql = "SELECT * FROM users where id!=$sid";
-                $result=mysqli_query($connection,$sql);
-                if(!$result)
-                {
-                    echo "Error ".$sql."<br>".mysqli_error($connection);
-                }
-                while($rows = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <option class="table" value="<?php echo $rows['id'];?>" >
-
-                        <?php echo $rows['name'] ;?> (Balance:
-                        <?php echo $rows['balance'] ;?> )
-
-                    </option>
-                    <?php
-                }
-                ?>
-                <div>
-            </select>
-            <br>
-            <br>
-            <label>Amount:</label>
-            <input type="number" class="form-control" name="amount" required>
-            <br><br>
-            <div class="text-center" >
-                <button class="btn mt-3" name="submit" type="submit" id="myBtn">Transfer</button>
+            <div class="col" >
+                <button class="btn mt-4 py-2 px-4" name="submit" type="submit" id="myBtn">Transfer</button>
             </div>
         </form>
     </div>

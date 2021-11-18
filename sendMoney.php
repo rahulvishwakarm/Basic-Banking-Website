@@ -22,8 +22,8 @@
         include 'navigationBar.php';
     ?>
 
-    <div class="container-fluid">
-        <h2 class="text-center pt-4">Transfer Money</h2>
+    <div class="container">
+        <h2 class="text-center pt-3">Transfer Money</h2>
         <br>
             <div class="row">
                 <div class="col">
@@ -31,7 +31,6 @@
                     <table class="table table-hover table-sm table-striped table-condensed table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center py-2">Id</th>
                                 <th scope="col" class="text-center py-2">Name</th>
                                 <th scope="col" class="text-center py-2">E-Mail</th>
                                 <th scope="col" class="text-center py-2">Balance</th>
@@ -43,7 +42,6 @@
                                 while($rows = mysqli_fetch_assoc($result)) {
                             ?>
                             <tr>
-                                <td class="py-2"><?php echo $rows['id'] ?></td>
                                 <td class="py-2"><?php echo $rows['name']?></td>
                                 <td class="py-2"><?php echo $rows['email']?></td>
                                 <td class="py-2"><?php echo $rows['balance']?></td>
